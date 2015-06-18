@@ -1,0 +1,9 @@
+.focus-outline(@width: 2px) {
+	box-shadow: 0 0 0 @width @color-focus;
+}
+
+.nav-transition(@duration: 150ms, @type: all) {
+	transition: @type @duration cubic-bezier(0.465, 0.183, 0.153, 0.946);
+	-ms-transition: @type @duration cubic-bezier(0.465, 0.183, 0.153, 0.946);
+	-webkit-transition: @type @duration cubic-bezier(0.465, 0.183, 0.153, 0.946);	
+}

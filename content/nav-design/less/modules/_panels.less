@@ -1,0 +1,93 @@
+@panel-border-color: @gray-icon;
+@panel-background-color: @white;
+@panel-background-color--extra: @gray-background;
+
+.panel {
+	background: #fff;
+	padding: 1rem 1rem 1.25rem 1rem;
+	margin-bottom: 1rem;
+	display: block; 
+	background-color: @panel-background-color;
+
+	p:last-child, .last-child {
+		margin-bottom: 0; 
+	}
+}
+
+a.panel {
+	display: block;
+	color: @gray-text;
+	border: 0; 
+
+	&:hover {
+		border: 0; 
+	}
+
+	&:focus {
+		outline: 3px @color-focus solid;
+		background-color: @panel-background-color;
+	}	
+}
+
+.panel--outlined, a.panel--outlined {
+	border: 1px solid @panel-border-color;
+}
+
+a.panel--outlined {
+	&:hover {
+		border: 1px solid @color-link;
+	}	
+}
+
+.panel--extra  {
+	position: relative;
+	border: 1px solid @panel-border-color;
+	margin-top: 2rem;
+	background-color: @panel-background-color--extra;
+
+	&:after, &:before {
+		content: "";
+		position: absolute;
+		border-style: solid;
+		border-color: transparent;
+		border-top: 0;
+		top: -1rem;
+		left: 50%;
+		border-width: 1rem;		
+	}
+
+	&:after {
+		border-bottom-color: @panel-background-color--extra;
+		transform: translate(-50%, 1px);
+	}
+
+	&:before {
+		border-bottom-color: @panel-border-color !important;
+		transform: translateX(-50%);
+	}	
+}
+
+.panel--error {
+	color: @white; 
+	background-color: @color-red-error;
+	margin-left: -.5rem;
+	margin-right: -.5rem;
+	margin-bottom: 3rem; 
+
+	a {
+		color: @white; 
+		border-bottom-color: @white; 
+	}
+}
+
+@media(min-width: 30rem) {
+	.panel--extra {
+		&:before, &:after {
+			left: 3rem; 
+		}
+	}
+
+	.panel {
+		padding: 2rem 2rem 2.25rem 2rem; 
+	}
+}

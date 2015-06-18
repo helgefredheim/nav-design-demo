@@ -1,0 +1,141 @@
+@btn-background-color: #e0ded8;
+@btn-text-color: @gray-text; 
+@btn-shadow-color: #adacaa;
+@btn--disabled-background-color: #b6b0a8;
+
+@btn--primary-background-color: #0067c5;
+@btn--primary-active-color: #005B82;
+@btn--primary-text-color: #fff; 
+@btn--primary-shadow-color: @gray-text;
+@btn--primary-disabled-background-color: #b6b0a8;
+
+@btn--danger-background-color: #BA3A26;
+@btn--danger-background-color-active: #BA3A26;
+@btn--danger-text-color: @white; 
+@btn--danger-shadow-color: @gray-text;
+@btn--danger-disabled-background-color: #860d0d;
+
+@btn-row-border-color: @gray-icon;
+
+.btn {
+	font-family: @font-family-profile;
+	font-weight: 600;
+	cursor: pointer;
+	display: inline-block;
+	text-transform: uppercase;
+	text-decoration: none;
+	text-align: center; 
+	outline: 0;
+	border: 0;
+	color: @btn-text-color;
+	border-radius: 2px;
+	letter-spacing: 1px;
+	padding: 11px 40px 7px;
+	background: @btn-background-color;
+	border-bottom: 2px solid @btn-shadow-color;
+	line-height: 1.2;
+	font-size: 1rem;
+
+	&:hover {
+		border-bottom: 3px solid @btn-shadow-color;
+		margin-bottom: -1px;
+		transform: translateY(-1px);
+	}
+
+	&:focus {
+		background-color: @btn-background-color;
+		.focus-outline; 
+	}	
+
+	&:active {
+		color: @btn-text-color;
+		background: @btn-shadow-color;
+		border-bottom: none;
+		margin-bottom: 2px; 
+		transform: translateY(3px);
+	}
+
+	&:disabled, &.is-disabled {
+		background: @btn--disabled-background-color;
+		margin-top: 0; 
+		margin-bottom: 0; 
+		transform: none; 
+
+		&:hover, &:active {
+			transform: none;
+			border-bottom: 2px solid @btn-shadow-color;
+			margin-top: 0; 
+			margin-bottom: 0; 
+			cursor: default;
+		}
+	}
+
+	+ .btn {
+		margin-left: .5rem;
+	}
+}
+
+.btn--colored(@background-color, @text-color, @shadow-color, @background-color-disabled, @background-color-active) {
+	color: @text-color;
+	background: @background-color;
+	border-bottom-color: @shadow-color;
+
+	&:focus {
+		background-color: @background-color;
+	}	
+
+	&:hover {
+		color: @text-color;
+		border-bottom-color: @shadow-color;
+	}
+
+	&:active {
+		color: @text-color;
+		background: @background-color-active;
+	}	
+
+	&:disabled, &.is-disabled {
+		background: @background-color-disabled;
+		border-bottom-color: @background-color-disabled;
+		&:hover, &:active {
+			border-bottom-color: @background-color-disabled;
+		}
+	}	
+}
+
+.btn--small {
+	font-size: @rem-as-14px;
+	padding: 9px 20px 6px;
+
+	&:active {
+		margin-bottom: 2px;
+	}	
+}
+
+.btn--large {
+	font-size: @rem-as-17px;
+	padding: 13px 50px 9px;
+	&:active {
+		margin-bottom: 2px;
+	}
+}
+
+.btn--danger {
+	.btn--colored(@btn--danger-background-color, @btn--danger-text-color, @btn--danger-shadow-color, @btn--danger-disabled-background-color, @btn--danger-background-color-active);
+}
+
+.btn--primary {
+	.btn--colored(@btn--primary-background-color, @btn--primary-text-color, @btn--primary-shadow-color, @btn--primary-disabled-background-color, @btn--primary-active-color);
+}
+
+/* BUTTON ROWS */
+
+.btn-row {
+	padding-top: 2rem;
+	text-align: center;
+	margin-bottom: 1rem;
+}
+
+.btn-row--separate {
+	border-top: 1px solid @btn-row-border-color;
+}

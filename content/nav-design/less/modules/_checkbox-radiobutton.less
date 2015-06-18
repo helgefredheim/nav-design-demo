@@ -1,0 +1,82 @@
+@nav-checkbox-hover-color: @blue-link;
+@nav-checkbox-checked-color: @blue-link;
+@nav-checkbox-outline-color: #978e85;
+@nav-input-disabled-color: @gray-icon;
+
+.nav-checkbox, .nav-radio {
+	position: absolute;
+	height: 0;
+	width: 0;
+	opacity: 0;	
+
+	&:hover + label:before {
+		border-color: @nav-checkbox-hover-color; 
+	}
+
+	&:focus + label:before {
+		.focus-outline(3px);
+	}
+
+	&:disabled + label:before {
+		background-color: @nav-input-disabled-color;
+	}
+
+	+ label {
+		padding-left: 2rem; 
+		position: relative; 
+		padding-top: 2px; 
+		display: block;
+		min-height: 22px;	
+		cursor: pointer; 
+	}
+
+	+ label:before {
+		content: "";
+		width: 22px;
+		height: 22px;
+		line-height: 22px;
+		border: 1px solid @nav-checkbox-outline-color;
+		left: 0; 
+		top: 0; 
+		position: absolute; 
+		display: block; 
+		text-align: center; 
+		background-position: center center;
+		background-repeat: no-repeat; 
+		background-size: 0 0; 
+		.nav-transition(100ms, background-size);
+	}
+
+	&:checked + label:before {
+		border-color: @nav-checkbox-checked-color; 
+		width: 20px;
+		height: 20px;
+		border-width: 2px; 	
+		background-size: 22px 22px; 	
+	}	
+}
+
+.nav-radio + label:before {
+	border-radius: 50%; 
+}
+
+.nav-checkbox + label:before {
+	border-radius: 2px; 
+}
+
+.nav-radio:checked + label:before {
+	background-image: url('../svg/radio-checked.svg');
+}
+
+.nav-checkbox:checked + label:before {
+	background-image: url('../svg/checked-white.svg');
+	background-color: @nav-checkbox-checked-color;
+}
+
+@media(min-width: 30em) {
+	.nav-checkbox, .nav-radio {
+		+ label {
+			padding-top: 3px; 
+		}
+	}
+}
